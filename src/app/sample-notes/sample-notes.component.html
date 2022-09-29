@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Sample Notes</h1>
+    <hr/>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let item of sampleNotes;let i = index;">
+            <div class="card mt-2 mb-2">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.title}}</h5>
+                  <hr/>
+                  <p class="card-text">{{item.body.slice(0,20)}}...</p>
+                  <hr/>
+                  <a [routerLink]="['/sample-notes',i]" class="btn btn-secondary btn-sm px-3">View <i class="fa-solid fa-circle-info"></i></a>
+                </div>
+              </div>
+        </div>
+    </div>
+    <p class="mt-5 p-3">This is how a note looks like, you can add anything of any length,it could be your
+        memory or favourite moment in your life,a groceries list,your favourite songs anything...
+        <strong>Save here,Memory loss happened ? No Problem come here login to your account
+            and that's it. Your brain may lost or forget your favourite moments but we don't, cheers :)
+        </strong>
+    </p>
+</div>
