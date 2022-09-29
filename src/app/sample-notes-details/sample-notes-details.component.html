@@ -1,0 +1,18 @@
+<div class="container mb-5">
+    <div class="row mt-5 mb-3">
+        <form >
+            <div class="col-12">
+                <label for="titleTextInput" class="form-label mt-2"><strong><span class="text-danger">*</span> Note Title</strong></label>
+                <input type="text" class="form-control" id="titleTextInput" #titleBox [disabled]="true">
+            </div>
+            <div class="col-12 mt-2">
+                <label for="descriptionTextarea" class="form-label"><strong><span class="text-danger">*</span> Description</strong></label>
+                <textarea style="width: 100%;height:45vh" #bodyBox id="descriptionTextarea" 
+                class="form-control" [disabled]="true"></textarea>
+            </div>
+            <div class="col-12 text-center mt-5 mb-3">
+                <button class="btn btn-success btn-sm px-5 mb-2" [routerLink]="['/sample-notes']"><i class="fa-solid fa-backward"></i> Go Back </button>
+            </div>
+        </form>
+    </div>
+</div>

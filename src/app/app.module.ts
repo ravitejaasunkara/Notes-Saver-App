@@ -21,6 +21,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AuthGuard } from './helpers/auth.guard';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FooterComponent } from './footer/footer.component';
+import { SampleNotesComponent } from './sample-notes/sample-notes.component';
+import { SampleNotesDetailsComponent } from './sample-notes-details/sample-notes-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +34,8 @@ import { FooterComponent } from './footer/footer.component';
     SignupComponent,
     PagenotfoundComponent,
     FooterComponent,
+    SampleNotesComponent,
+    SampleNotesDetailsComponent,
   ],
   imports: [
     BrowserModule,

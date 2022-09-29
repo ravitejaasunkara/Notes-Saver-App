@@ -32,13 +32,19 @@
             </div>
             <div class="row mt-3 mb-3">
                 <div class="col-lg-4 col-sm-6 text-center">
-                    <button class="btn btn-success btn-sm px-5 mb-2" (click)="updateNote()">Save</button>
+                    <button class="btn btn-success btn-sm px-5 mb-2" (click)="updateNote()">
+                        Save <i class="fa-solid fa-floppy-disk"></i>
+                    </button>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center">
-                    <button class="btn btn-info btn-sm px-5 mb-2" (click)="cancelNote()">Cancel</button>
+                    <button class="btn btn-info btn-sm px-5 mb-2" (click)="cancelNote()">
+                        Cancel <i class="fa-solid fa-ban"></i>
+                    </button>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center">
-                    <button class="btn btn-danger btn-sm px-5 mb-2" (click)="deleteNote()">Delete</button>
+                    <button class="btn btn-danger btn-sm px-5 mb-2" (click)="deleteNote()">
+                        Delete <i class="fa-solid fa-trash"></i>
+                    </button>
                 </div>
             </div>
         </form>
