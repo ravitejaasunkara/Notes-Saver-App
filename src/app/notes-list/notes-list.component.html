@@ -2,8 +2,12 @@
     <h1 *ngIf="notesData.length>0">Your Notes</h1>
     <hr/>
     <div class="row">
-        <div *ngIf="notesData.length == 0" class=" col-12 nodata">
-            <h4>Looks like no notes saved, <a [routerLink]="['/add-notes']">try adding one of your notes here</a></h4>
+        <div *ngIf="notesData.length == 0" class="nodata">
+            <h5>Looks like no notes saved, <a [routerLink]="['/add-notes']">try adding one of your notes here</a></h5>
+            <br/>
+            <h5>Having confusion how a note looks like ? No problem we're here to assist you, check out our
+                <a [routerLink]="['/sample-notes']">Sample Notes here...</a>
+            </h5>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let item of notesData;let i = index;">
             <div class="card mt-2 mb-2">
