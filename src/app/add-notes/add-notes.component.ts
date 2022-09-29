@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 import { NotesService } from '../services/notes.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class AddNotesComponent implements OnInit {
 
   }
   saved: boolean = false;
-  constructor(private notesService: NotesService, private router: Router) { }
+  constructor(private notesService: NotesService, private router: Router,private authService:AuthService) { }
   addNotesForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     noteDescription: new FormControl('', [Validators.required])
@@ -27,7 +28,8 @@ export class AddNotesComponent implements OnInit {
   }
   addNote() {
     const { title, noteDescription } = this.addNotesForm.value;
-    this.notesService.saveNote(title, noteDescription).subscribe(res => {
+    var username = this.authService.getUserName();
+    this.notesService.saveNote(title, noteDescription,username).subscribe(res => {
       //console.log(res);
       this.saved = true;
       // this.titleInput.nativeElement.value = '';

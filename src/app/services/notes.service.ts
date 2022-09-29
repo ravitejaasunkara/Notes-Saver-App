@@ -16,25 +16,25 @@ export class NotesService {
 
   baseUrl = `https://keep-your-noteshere-default-rtdb.firebaseio.com/${this.currentUserName}.json`;
 
-  saveNote(title:any,noteDescription:any){
-    return this.http.post(this.baseUrl,{title:title,body:noteDescription}); 
+  saveNote(title:any,noteDescription:any,username:any){
+    return this.http.post(this.getNotesUrl+username+'.json',{title:title,body:noteDescription}); 
   }
 
   getNotes(username:any){
     return this.http.get(this.getNotesUrl+username+'.json');
   }
 
-  deleteNote(noteId:any){
-    let url = `${this.getNotesUrl}${this.currentUserName}/${noteId}.json`;
+  deleteNote(noteId:any,username:any){
+    let url = `${this.getNotesUrl}${username}/${noteId}.json`;
     return this.http.delete(url);
   }
 
-  getNoteByNoteId(noteId:any){
-    let url = `${this.getNotesUrl}${this.currentUserName}/${noteId}.json`;
+  getNoteByNoteId(noteId:any,username:any){
+    let url = `${this.getNotesUrl}${username}/${noteId}.json`;
     return this.http.get(url);
   }
-  updateNote(noteId:any,resBody:any){
-    let url = `${this.getNotesUrl}${this.currentUserName}/${noteId}.json`;
+  updateNote(noteId:any,resBody:any,username:any){
+    let url = `${this.getNotesUrl}${username}/${noteId}.json`;
     return this.http.put(url,resBody);
   }
 }
