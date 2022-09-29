@@ -28,26 +28,7 @@ export class EditNotesComponent implements OnInit {
     this.getNoteId();
     this.loadDataIntoTextarea();
   }
-
-  // editNotesForm = new FormGroup({
-  //   titleText: new FormControl('',[Validators.required]),
-  //   noteContent: new FormControl('hello',[Validators.required]),
-  // })
-
-  // get f(){
-  //   return this.editNotesForm.controls;
-  // }
-
-  // saveNote() {
-  //   //console.log(this.addNotesTextArea.nativeElement.value);
-  //   this.saved = true;
-  //   setTimeout(() => {
-  //     this.saved = false;
-  //     this.router.navigate(['/view-notes']);
-  //   }, 2000);
-  //   console.log(this.editNotesTextArea.nativeElement.value);
-  //   console.log(this.titleInput.nativeElement.value);
-  // }
+ 
   cancelNote() {
     this.cancelled = true;
     setTimeout(() => {
