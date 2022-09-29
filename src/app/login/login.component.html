@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row col-12">
+        <form class="form-holder" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+            <h1>Login</h1>
+            <div class="col-12" *ngIf="loginWrongPassword">
+                <p class="alert alert-danger" role="alert">{{loginFailedText}}</p>
+            </div>
+            <div class="username mt-3">
+                <label for="username" class="form-label"><span class="text-danger">*</span> Username</label>
+                <input type="text" class="form-control" id="username" formControlName="username">
+                <small style="font-size: 12px;">Note: Enter same username you have used during registration
+                    process..!</small>
+                <div *ngIf="f.username.errors && f.username.touched">
+                    <small *ngIf="f.username.errors['required']" class="text-danger">Username is required.</small>
+                    <small *ngIf="f.username.errors['minlength']" class="text-danger">Username should be minimum 8
+                        characters</small>
+                </div>
+            </div>
+            <div class="email mt-3">
+                <label for="email" class="form-label"><span class="text-danger">*</span> Email</label>
+                <input type="text" class="form-control" id="email" formControlName="email">
+                <div *ngIf="f.email.errors && f.email.touched">
+                    <small *ngIf="f.email.errors['required']" class="text-danger">Email is required</small>
+                    <small *ngIf="f.email.errors['email']" class="text-danger">Email seems to be invalid</small>
+                </div>
+            </div>
+            <div class="password mt-3">
+                <label for="password" class="form-label"><span class="text-danger">*</span> Password</label>
+                <input type="password" class="form-control" id="pwd" formControlName="password">
+                <div *ngIf="f.password.errors && f.password.touched">
+                    <small *ngIf="f.password.errors['required']" class="text-danger">Password is required</small>
+                    <small *ngIf="f.password.errors['pattern']" class="text-danger">Password is invalid</small>
+                </div>
+            </div>
+            <div class="form-check  col-lg-3 col-sm-3 col-md-12 d-flex mt-2">
+                <input class="form-check-input" type="checkbox" id="showhide" style="width: 15px;" (click)="showOrHidePassword()">
+                <label class="form-check-label small" for="flexCheckDefault" style="margin-left: 8px;" >{{passwordStatus}} Password</label>
+            </div>
+
+            <!-- <div class="row mt-2">
+                <div class="col-3">
+                    <input type="checkbox">
+                </div>
+                <div class="col-9 text-left">
+                    <small class="text-left">Show Password</small>
+                </div>
+            </div> -->
+            <div class="login-button mt-4">
+                <button class="btn btn-primary btn-sm col-12" [disabled]="!loginForm.valid">Login</button>
+            </div>
+            <div class="signup mt-2 mb-2 col-12 text-center">
+                <p>New user ? <a [routerLink]="['/signup']">Register here... <i
+                            class="fa-solid fa-arrow-right-to-bracket"></i></a></p>
+            </div>
+        </form>
+    </div>
+</div>

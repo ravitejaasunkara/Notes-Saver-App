@@ -1,0 +1,12 @@
+.page{
+    height: 100vh;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.child-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

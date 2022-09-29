@@ -1,0 +1,46 @@
+<div class="container mb-5">
+    <div class="row mt-5 mb-3">
+        <div class="col-12 alert alert-success mt-1 small" role="alert"  *ngIf="saved">
+            <strong>Note Saved successfully.</strong>
+        </div>
+        <div class="col-12 alert alert-warning mt-1 small text-center" role="alert" *ngIf="cancelled" >
+            <strong class="text-center">No changes made to the note.</strong>
+        </div>
+        <div class="col-12 alert alert-danger text-center mt-1 small" role="alert" *ngIf="deleted">
+            <strong>Note deleted successfully.</strong>
+        </div>
+        <div class="col-12 alert alert-primary text-center mt-1 small" role="alert" *ngIf="updated">
+            <strong>Note updated successfully.</strong>
+        </div>
+        <form >
+            <div class="col-12">
+                <label for="titleTextInput" class="form-label mt-2"><strong><span class="text-danger">*</span> Note Title</strong></label>
+                <input type="text" class="form-control" id="titleTextInput" #titleInput required>
+                <!-- <div *ngIf="f.titleText.errors && f.titleText.touched">
+                    <small *ngIf="f.titleText.errors['required']" class="text-danger">Title is required</small>
+                </div> -->
+            </div>
+            <div class="col-12 mt-2">
+                <label for="descriptionTextarea" class="form-label"><strong><span class="text-danger">*</span> Description</strong></label>
+                <textarea style="width: 100%;height:45vh" #editNotesTextArea id="descriptionTextarea" 
+                class="form-control" required></textarea>
+                <!-- <div *ngIf="f.noteContent.errors && f.noteContent.touched">
+                    <small *ngIf="f.noteContent.errors['required']" class="text-danger">
+                        Note description is required
+                    </small>
+                </div> -->
+            </div>
+            <div class="row mt-3 mb-3">
+                <div class="col-lg-4 col-sm-6 text-center">
+                    <button class="btn btn-success btn-sm px-5 mb-2" (click)="updateNote()">Save</button>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center">
+                    <button class="btn btn-info btn-sm px-5 mb-2" (click)="cancelNote()">Cancel</button>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center">
+                    <button class="btn btn-danger btn-sm px-5 mb-2" (click)="deleteNote()">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

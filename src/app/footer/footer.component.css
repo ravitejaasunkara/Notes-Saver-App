@@ -1,0 +1,11 @@
+#footer{
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+#icon{
+    padding-left: 7px;
+    padding-right: 8px;
+}
+

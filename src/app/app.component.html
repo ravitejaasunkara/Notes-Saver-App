@@ -1,0 +1,11 @@
+<!-- <div *ngFor="let item of posts;let i=index;" style="border: 1px solid black;margin-top:8px">
+  <h1>{{item.title}}</h1>
+  <hr>
+  <p>{{item.body}}</p>
+  <button (click)="deletePost(item.title)">Delete Post</button>
+</div> -->
+<app-header class="header"></app-header>
+<div class="router-div">
+  <router-outlet></router-outlet>
+</div>
+<app-footer class="footer"></app-footer>

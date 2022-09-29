@@ -1,0 +1,29 @@
+<div class="container mb-5">
+    <div class="row mt-5 mb-5">
+        <form [formGroup]="addNotesForm">
+            <div class="col-12 alert alert-success text-center mt-4" role="alert"  *ngIf="saved">
+                Note Saved successfully.
+            </div>
+            <div class="col-12">
+                <label for="title" class="form-label mt-2"><strong><span class="text-danger">*</span> Note Title</strong></label>
+                <input type="text" class="form-control" id="title" formControlName="title" #titleInput>
+                <div *ngIf="f.title.errors && f.title.touched">
+                    <small *ngIf="f.title.errors['required']" class="text-danger">Title is required</small>
+                </div>
+            </div>
+            <div class="col-12 mt-2">
+                <label for="textbox" class="form-label"><strong><span class="text-danger">*</span> Description</strong></label>
+                <textarea style="width: 100%;height:45vh" #addNotesTextArea id="txtarea" 
+                class="form-control" formControlName="noteDescription"></textarea>
+                <div *ngIf="f.noteDescription.errors && f.noteDescription.touched">
+                    <small *ngIf="f.noteDescription.errors['required']" class="text-danger">
+                        Note description is required
+                    </small>
+                </div>
+            </div>
+            <div class="col-12 text-center mt-5 mb-3">
+                <button class="btn btn-success btn-sm px-5 mb-2" (click)="addNote()" [disabled]="!addNotesForm.valid">Add Note</button>
+            </div>
+        </form>
+    </div>
+</div>
