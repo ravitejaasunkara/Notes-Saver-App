@@ -12,7 +12,7 @@
                     process..!</small>
                 <div *ngIf="f.username.errors && f.username.touched">
                     <small *ngIf="f.username.errors['required']" class="text-danger">Username is required.</small>
-                    <small *ngIf="f.username.errors['minlength']" class="text-danger">Username should be minimum 8
+                    <small *ngIf="f.username.errors['minlength']" class="text-danger">Username should be minimum 6
                         characters</small>
                 </div>
             </div>
@@ -29,7 +29,6 @@
                 <input type="password" class="form-control" id="pwd" formControlName="password">
                 <div *ngIf="f.password.errors && f.password.touched">
                     <small *ngIf="f.password.errors['required']" class="text-danger">Password is required</small>
-                    <small *ngIf="f.password.errors['pattern']" class="text-danger">Password is invalid</small>
                 </div>
             </div>
             <div class="form-check  col-lg-3 col-sm-3 col-md-12 d-flex mt-2">
