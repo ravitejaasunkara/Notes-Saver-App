@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
   isSignup: boolean = false;
 
   signupForm = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(6)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('',
       [
