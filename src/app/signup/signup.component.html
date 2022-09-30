@@ -8,7 +8,7 @@
                 <small style="font-size: 12px;">Note: use the same username everytime you login.</small>
                 <div *ngIf="f.username.errors && f.username.touched">
                     <small *ngIf="f.username.errors['required']" class="text-danger">Username is required.</small>
-                    <small *ngIf="f.username.errors['minlength']" class="text-danger">Username should be minimum 8 characters</small>
+                    <small *ngIf="f.username.errors['minlength']" class="text-danger">Username should be minimum 6 characters</small>
                 </div>
             </div>
             <div class="email mt-3">
@@ -53,6 +53,7 @@
                     <small class="text-left">Show Password</small>
                 </div>
             </div> -->
+            <small style="font-size: 12px;" class="mt-2 text-success text-center"><strong>Just a Heads up..remember your username,email & password to login :)</strong></small>
             <div class="login-button mt-4 mb-3">
                 <button class="btn btn-primary btn-sm col-12" [disabled]="!signupForm.valid">Signup</button>
             </div>
