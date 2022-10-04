@@ -16,19 +16,11 @@
             <div class="col-12">
                 <label for="titleTextInput" class="form-label mt-2"><strong><span class="text-danger">*</span> Note Title</strong></label>
                 <input type="text" class="form-control" id="titleTextInput" #titleInput required>
-                <!-- <div *ngIf="f.titleText.errors && f.titleText.touched">
-                    <small *ngIf="f.titleText.errors['required']" class="text-danger">Title is required</small>
-                </div> -->
             </div>
             <div class="col-12 mt-2">
                 <label for="descriptionTextarea" class="form-label"><strong><span class="text-danger">*</span> Description</strong></label>
                 <textarea style="width: 100%;height:45vh" #editNotesTextArea id="descriptionTextarea" 
                 class="form-control" required></textarea>
-                <!-- <div *ngIf="f.noteContent.errors && f.noteContent.touched">
-                    <small *ngIf="f.noteContent.errors['required']" class="text-danger">
-                        Note description is required
-                    </small>
-                </div> -->
             </div>
             <div class="row mt-3 mb-3">
                 <div class="col-lg-3 col-sm-6 text-center">

@@ -23,14 +23,9 @@ export class LoginComponent implements OnInit {
   loginWrongEmail = false;
   loginFailedText = '';
   loginForm = new FormGroup({
-    username: new FormControl('',
-      [
-        Validators.required, Validators.minLength(6)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('',
-      [
-        Validators.required
-      ]),
+    username: new FormControl('',[Validators.required]),
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('',[Validators.required]),
   });
 
   login(formData: any) {

@@ -7,24 +7,24 @@
                 <input type="text" class="form-control" id="username" formControlName="username">
                 <small style="font-size: 12px;">Note: use the same username everytime you login.</small>
                 <div *ngIf="f.username.errors && f.username.touched">
-                    <small *ngIf="f.username.errors['required']" class="text-danger">Username is required.</small>
-                    <small *ngIf="f.username.errors['minlength']" class="text-danger">Username should be minimum 6 characters</small>
+                    <small *ngIf="f.username.errors['required']" class="text-danger" style="font-size: 12px;">Username is required.</small>
+                    <small *ngIf="f.username.errors['minlength']" class="text-danger" style="font-size: 12px;">Username should be minimum 6 characters</small>
                 </div>
             </div>
             <div class="email mt-3">
                 <label for="email" class="form-label"><span class="text-danger">*</span> Email</label>
                 <input type="text" class="form-control" id="email" formControlName="email">
                 <div *ngIf="f.email.errors && f.email.touched">
-                    <small *ngIf="f.email.errors['required']" class="text-danger">Email is required</small>
-                    <small *ngIf="f.email.errors['email']" class="text-danger">Email seems to be invalid</small>
+                    <small *ngIf="f.email.errors['required']" class="text-danger" style="font-size: 12px;">Email is required</small>
+                    <small *ngIf="f.email.errors['email']" class="text-danger" style="font-size: 12px;">Email seems to be invalid</small>
                 </div>
             </div>
             <div class="password mt-3">
                 <label for="password" class="form-label"><span class="text-danger">*</span> Password</label>
                 <input type="password" class="form-control" id="pwd1" formControlName="password">
                 <div *ngIf="f.password.errors && f.password.touched">
-                    <small *ngIf="f.password.errors['required']" class="text-danger">Password is required</small>
-                    <small *ngIf="f.password.errors['minlength']" class="text-danger">Password should be of 8 characters</small>
+                    <small *ngIf="f.password.errors['required']" class="text-danger" style="font-size: 12px;">Password is required,Minimum length is 6</small>
+                    <small *ngIf="f.password.errors['pattern']" class="text-danger" style="font-size: 12px;">Password should contain<strong> uppercase,lowercase,numbers,special characters</strong></small>
                 </div>
             </div>
             <div class="form-check col-lg-3 col-sm-3 col-md-12 d-flex mt-2">
@@ -35,11 +35,11 @@
                 <label for="confirmPassword" class="form-label"><span class="text-danger">*</span> Confirm Password</label>
                 <input type="password" class="form-control" formControlName="confirmPassword" id="pwd2">
                 <div *ngIf="f.confirmPassword.errors && f.confirmPassword.touched">
-                    <small *ngIf="f.confirmPassword.errors['required']" class="text-danger">Confirmation password is required</small>
+                    <small *ngIf="f.confirmPassword.errors['required']" class="text-danger" style="font-size: 12px;">Confirmation password is required</small>
                 </div>
             </div>
             <div>
-                <small class="text-danger" *ngIf="signupForm.errors?.['passwordsDontMatch']">passwords should be equal</small>
+                <small class="text-danger" *ngIf="signupForm.errors?.['passwordsDontMatch']" style="font-size: 12px;">passwords should be equal</small>
             </div>
             <div class="form-check col-lg-3 col-sm-3 col-md-12 d-flex mt-2">
                 <input class="form-check-input" type="checkbox"  style="width: 15px;" (click)="showOrHidePassword('pwd2')">
