@@ -12,6 +12,7 @@
                     process..!</small>
                 <div *ngIf="f.username.errors && f.username.touched">
                     <small *ngIf="f.username.errors['required']" class="text-danger" style="font-size: 12px;">Username is required.</small>
+                    <small *ngIf="f.username.errors['required']" class="text-danger">Username is required.</small>
                 </div>
             </div>
             <div class="email mt-3">
@@ -19,6 +20,7 @@
                 <input type="text" class="form-control" id="email" formControlName="email">
                 <div *ngIf="f.email.errors && f.email.touched">
                     <small *ngIf="f.email.errors['required']" class="text-danger" style="font-size: 12px;">Email is required</small>
+                    <small *ngIf="f.email.errors['required']" class="text-danger">Email is required</small>
                 </div>
             </div>
             <div class="password mt-3">
