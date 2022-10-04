@@ -11,21 +11,21 @@
                 <small style="font-size: 12px;">Note: Enter same username you have used during registration
                     process..!</small>
                 <div *ngIf="f.username.errors && f.username.touched">
-                    <small *ngIf="f.username.errors['required']" class="text-danger">Username is required.</small>
+                    <small *ngIf="f.username.errors['required']" class="text-danger" style="font-size: 12px;">Username is required.</small>
                 </div>
             </div>
             <div class="email mt-3">
                 <label for="email" class="form-label"><span class="text-danger">*</span> Email</label>
                 <input type="text" class="form-control" id="email" formControlName="email">
                 <div *ngIf="f.email.errors && f.email.touched">
-                    <small *ngIf="f.email.errors['required']" class="text-danger">Email is required</small>
+                    <small *ngIf="f.email.errors['required']" class="text-danger" style="font-size: 12px;">Email is required</small>
                 </div>
             </div>
             <div class="password mt-3">
                 <label for="password" class="form-label"><span class="text-danger">*</span> Password</label>
                 <input type="password" class="form-control" id="pwd" formControlName="password">
                 <div *ngIf="f.password.errors && f.password.touched">
-                    <small *ngIf="f.password.errors['required']" class="text-danger">Password is required</small>
+                    <small *ngIf="f.password.errors['required']" class="text-danger" style="font-size: 12px;">Password is required</small>
                 </div>
             </div>
             <div class="form-check  col-lg-3 col-sm-3 col-md-12 d-flex mt-2">
