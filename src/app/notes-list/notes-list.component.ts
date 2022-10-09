@@ -12,6 +12,7 @@ export class NotesListComponent implements OnInit {
 
   constructor(private http: HttpClient,private notesService:NotesService,private authService:AuthService) { }
   notesData: any = [];
+  colorsList = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10'];
   ngOnInit(): void {
     this.getNotes();
   }
@@ -23,7 +24,8 @@ export class NotesListComponent implements OnInit {
       res => {
         var notes:any = res;
         for(const key in notes){
-          this.notesData.push({...notes[key],id:key})
+          let color = Math.floor(Math.random()*10);
+          this.notesData.push({...notes[key],id:key,color:this.colorsList[color]});
         }
         //console.log(this.notesData);
       }

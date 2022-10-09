@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 *ngIf="notesData.length>0">Your Notes</h1>
+    <h1 *ngIf="notesData.length>0" style="font-weight:bold;">Your Notes</h1>
     <hr/>
     <div class="row">
         <div *ngIf="notesData.length == 0" class="nodata">
@@ -11,14 +11,14 @@
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let item of notesData;let i = index;">
             <div class="card mt-2 mb-2">
-                <div class="card-body">
+                <div class="card-body" [ngClass]="item.color">
                   <h5 class="card-title">{{item.title}}</h5>
                   <hr/>
                   <p class="card-text">{{item.body.slice(0,20)}}...</p>
                   <hr/>
                   <a [routerLink]="['/edit-notes',item.id]" class="btn btn-secondary btn-sm px-3">View/Edit <i class="fa-regular fa-pen-to-square"></i></a>
                 </div>
-              </div>
+            </div>
         </div>
     </div>
 </div>
