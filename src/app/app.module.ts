@@ -23,6 +23,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FooterComponent } from './footer/footer.component';
 import { SampleNotesComponent } from './sample-notes/sample-notes.component';
 import { SampleNotesDetailsComponent } from './sample-notes-details/sample-notes-details.component';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { SampleNotesDetailsComponent } from './sample-notes-details/sample-notes
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgHttpLoaderModule.forRoot(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth())
   ],
