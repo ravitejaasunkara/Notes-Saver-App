@@ -9,13 +9,22 @@
     margin-bottom: 30px;
     background-color: rgba(255, 255, 255, 0.342);
     border-radius: 8px;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 .nodata{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 70vh;
+}
+.c1{
+    background-color: #AEBDCA;
+}
+.c2{
+    background-color: #F2D7D9;
+}
+.c3{
+    background-color: #A7FFE4;
 }
 
 @media only screen and (max-width: 1200px){
