@@ -17,7 +17,7 @@ export class NotesService {
   baseUrl = `https://keep-your-noteshere-default-rtdb.firebaseio.com/${this.currentUserName}.json`;
 
   saveNote(title:any,noteDescription:any,username:any){
-    return this.http.post(this.getNotesUrl+username+'.json',{title:title,body:noteDescription}); 
+    return this.http.post(this.getNotesUrl+username+'.json',{title:title,body:noteDescription,dateCreated:new Date().toLocaleDateString()}); 
   }
 
   getNotes(username:any){

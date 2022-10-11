@@ -9,11 +9,11 @@
                 <a [routerLink]="['/sample-notes']">Sample Notes here...</a>
             </h5>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let item of notesData;let i = index;">
+        <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let item of resData;let i = index;">
             <a [routerLink]="['/edit-notes',item.id]" style="text-decoration: none;color: inherit;">
             <div class="card mt-2 mb-2">
                 <div class="card-body" [ngClass]="item.color">
-                  <h5 class="card-title"><strong>{{item.title}}</strong></h5>
+                  <h5 class="card-title"><strong>{{item.title.slice(0,10)}}</strong></h5>
                   <hr/>
                   <p class="card-text">{{item.body.slice(0,20)}}...</p>
                   <!-- <a  class="btn btn-secondary btn-sm px-3">View/Edit <i class="fa-regular fa-pen-to-square"></i></a> -->
