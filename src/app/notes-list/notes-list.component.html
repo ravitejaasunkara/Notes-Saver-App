@@ -12,9 +12,9 @@
         <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let item of notesData;let i = index;">
             <div class="card mt-2 mb-2">
                 <div class="card-body" [ngClass]="item.color">
-                <div>
-                    <h5 class="card-title"><strong>{{item.title.slice(0,10)}}</strong></h5>
-                    <a (click)="setLikes($event,item.title,item.body,item.id)"><i class="fa-regular fa-heart" [style.color]="item.isFavourite ? 'red':'black'" style="cursor: pointer;" [title]="item.isFavourite ? 'unlike' : 'like'"></i></a>
+                <div class="row">
+                    <h5 class="card-title col-9"><strong>{{item.title.slice(0,10)}}</strong></h5>
+                    <a class="col-3" (click)="setLikes($event,item.title,item.body,item.id)"><i class="fa-regular fa-heart" [style.color]="item.isFavourite ? 'red':'black'" style="cursor: pointer;" [title]="item.isFavourite ? 'unlike' : 'like'"></i></a>
                 </div>
                   <hr/>
                   <p class="card-text">{{item.body.slice(0,20)}}...</p>

@@ -24,6 +24,7 @@ export class EditNotesComponent implements OnInit {
   cancelled: boolean = false;
   deleted: boolean = false;
   updated: boolean = false;
+  isFav!:any;
 
   ngOnInit(): void {
     this.getNoteId();
@@ -51,6 +52,7 @@ export class EditNotesComponent implements OnInit {
       var data: any = res;
       this.editNotesTextArea.nativeElement.value = data?.body;
       this.titleInput.nativeElement.value = data?.title;
+      this.isFav = data?.isFavourite;
     })
   }
 
@@ -75,7 +77,8 @@ export class EditNotesComponent implements OnInit {
     if (window.confirm('Are you sure you want to update this note ?')) {
       let resBody = {
         title: this.titleInput.nativeElement.value,
-        body: this.editNotesTextArea.nativeElement.value
+        body: this.editNotesTextArea.nativeElement.value,
+        isFavourite:this.isFav
       }
       this.notesService.updateNote(this.noteId, resBody,username).subscribe(res => {
         this.updated = true;
