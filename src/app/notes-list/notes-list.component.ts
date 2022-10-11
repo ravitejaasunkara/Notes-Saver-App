@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { LikednotesComponent } from '../likednotes/likednotes.component';
 import { AuthService } from '../services/auth.service';
 import { NotesService } from '../services/notes.service';
 
@@ -14,6 +15,7 @@ export class NotesListComponent implements OnInit {
   notesData: any = [];
   colorsList = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10'];
   resData:any = [];
+  reverseData:any = [];
   ngOnInit(): void {
     this.getNotes();
   }
@@ -28,10 +30,11 @@ export class NotesListComponent implements OnInit {
           let color = Math.floor(Math.random()*10);
           this.notesData.push({...notes[key],id:key,color:this.colorsList[color]});
         }
-        // for(let i = this.notesData.length;i >=0;i--){
-        //   this.resData.push(this.notesData[i]);
-        // }
-        //console.log(this.notesData);
+        for(let i = this.notesData.length-1;i >= 0;i--){
+          //console.log(this.notesData[i]);
+          this.reverseData.push(this.notesData[i]);
+        }
+        //console.log(this.reverseData);
       }
     )
   }
@@ -65,6 +68,9 @@ export class NotesListComponent implements OnInit {
     }
     this.notesService.updateNote(noteid,resBody,username).subscribe(res => {
       //console.log(res)
+      this.notesData = [];
+      this.reverseData = [];
+      this.getNotes();
     },err => {
       console.log(err)
     })
