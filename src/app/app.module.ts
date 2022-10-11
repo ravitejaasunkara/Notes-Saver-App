@@ -24,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SampleNotesComponent } from './sample-notes/sample-notes.component';
 import { SampleNotesDetailsComponent } from './sample-notes-details/sample-notes-details.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { LikednotesComponent } from './likednotes/likednotes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     FooterComponent,
     SampleNotesComponent,
     SampleNotesDetailsComponent,
+    LikednotesComponent,
   ],
   imports: [
     BrowserModule,

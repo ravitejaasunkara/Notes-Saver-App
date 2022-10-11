@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 *ngIf="likedNotes.length>0" style="font-weight:bold;">Your Favourite Notes</h1>
+    <hr/>
+    <div class="row">
+        <div *ngIf="likedNotes.length == 0" class="nodata">
+            <h5>You have 0 favourite notes,make some of your notes as favourite,then those notes will display here</h5>
+            <br/>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let item of likedNotes;let i = index;">
+            <div class="card mt-2 mb-2">
+                <div class="card-body" [ngClass]="item.color">
+                    <div class="row">
+                        <h5 class="card-title col-9"><strong>{{item.title.slice(0,5)}}</strong></h5>
+                        <span class="col-3" style="color: red;"><i class="fa-solid fa-heart"></i></span>
+                    </div>
+                  <hr/>
+                  <p class="card-text">{{item.body.slice(0,20)}}...</p>
+                  <!-- <a  class="btn btn-secondary btn-sm px-3">View/Edit <i class="fa-regular fa-pen-to-square"></i></a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

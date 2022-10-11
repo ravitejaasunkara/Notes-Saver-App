@@ -6,8 +6,12 @@
     overflow: hidden;
     user-select: none;
 }
+a{
+    text-decoration: none;
+    color: inherit;
+}
 .card-body{
-    padding: 48px;
+    padding: 32px;
 }
 a:hover{
     filter: brightness(96%);
