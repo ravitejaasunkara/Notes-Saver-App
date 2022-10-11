@@ -7,25 +7,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto">
-        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/sample-notes']"><strong>Sample Notes </strong>
-          <i class="fa-solid fa-comment"></i></a>
         <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/login']"><strong>Home </strong>
           <i class="fa-solid fa-house"></i></a>
-        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/view-notes']"><strong>View Notes </strong>
-          <i class="fa-solid fa-eye"></i></a>
+          <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/add-notes']"><strong>Add Notes </strong> <i
+              class="fa-solid fa-plus"></i></a>
+        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/sample-notes']"><strong>Sample Notes </strong>
+          <i class="fa-solid fa-comment"></i></a>
+        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/favourites']"><strong>Favourite Notes </strong>
+          <i class="fa-regular fa-star"></i></a>
         <!-- <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/view-notes']">Edit Notes <i
             class="fa-solid fa-pen-to-square"></i></a> -->
-        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/add-notes']"><strong>Add Notes </strong> <i
-            class="fa-solid fa-plus"></i></a>
+            <a class="btn btn-default btn-sm px-3 nav-link" 
+            *ngIf = "!(authService.isUserLoggedIn())" 
+            [routerLink]="['/login']"><strong>Sign In </strong>
+            <i class="fa-solid fa-right-from-bracket"></i></a>
         <a class="btn btn-default btn-sm px-3 nav-link" 
         *ngIf = "authService.isUserLoggedIn()" 
         (click)="logoutUser()"><strong>Sign Out </strong> 
         <i class="fa-solid fa-right-from-bracket"></i></a>
         <!--Login-->
-        <a class="btn btn-default btn-sm px-3 nav-link" 
-        *ngIf = "!(authService.isUserLoggedIn())" 
-        [routerLink]="['/login']"><strong>Sign In </strong>
-        <i class="fa-solid fa-right-from-bracket"></i></a>
         <!--Signup-->
         <a class="btn btn-default btn-sm px-3 nav-link" 
         *ngIf = "!(authService.isUserLoggedIn())" 

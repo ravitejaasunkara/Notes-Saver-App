@@ -17,7 +17,7 @@ export class NotesService {
   baseUrl = `https://keep-your-noteshere-default-rtdb.firebaseio.com/${this.currentUserName}.json`;
 
   saveNote(title:any,noteDescription:any,username:any){
-    return this.http.post(this.getNotesUrl+username+'.json',{title:title,body:noteDescription}); 
+    return this.http.post(this.getNotesUrl+username+'.json',{title:title,body:noteDescription,isFavourite:false,dateCreated:new Date().toLocaleDateString()}); 
   }
 
   getNotes(username:any){
@@ -33,6 +33,17 @@ export class NotesService {
     let url = `${this.getNotesUrl}${username}/${noteId}.json`;
     return this.http.get(url);
   }
+
+  /**
+   * 
+   * @param noteId 
+   * @param resBody 
+   * @param username 
+   * @returns an observable of type any
+   * function useful in two ways
+   * one way for edit-notes and update
+   * and another way is to like and unlike the note
+   */
   updateNote(noteId:any,resBody:any,username:any){
     let url = `${this.getNotesUrl}${username}/${noteId}.json`;
     return this.http.put(url,resBody);
