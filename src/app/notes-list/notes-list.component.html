@@ -9,7 +9,7 @@
                 <a [routerLink]="['/sample-notes']">Sample Notes here...</a>
             </h5>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let item of notesData;let i = index;">
+        <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let item of reverseData;let i = index;">
             <div class="card mt-2 mb-2">
                 <div class="card-body" [ngClass]="item.color">
                 <div class="row">

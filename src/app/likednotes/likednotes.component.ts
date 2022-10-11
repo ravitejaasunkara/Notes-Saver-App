@@ -40,4 +40,33 @@ export class LikednotesComponent implements OnInit {
       // console.log(this.likedNotes);
   }
 
+  setLikes(event:any,noteTitle:any,noteBody:any,noteid:any){
+    var username = this.authService.getUserName();
+    let iconColor = event.target.style.color;
+    var newColor;
+    var isFav;
+    if(iconColor == 'black'){
+      event.target.style.color = 'red';
+      newColor = 'red';
+      isFav = true;
+    }else{
+      event.target.style.color = 'black';
+      newColor = 'black';
+      isFav = false;
+    }
+    let resBody = {
+      title:noteTitle,
+      body:noteBody,
+      isFavourite:isFav
+    }
+    this.notesService.updateNote(noteid,resBody,username).subscribe(res => {
+      //console.log(res)
+      this.favnotes = [];
+      this.likedNotes = [];
+      this.getFavouriteNotes();
+    },err => {
+      console.log(err)
+    })
+  }
+
 }
