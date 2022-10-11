@@ -14,7 +14,7 @@
                 <div class="card-body" [ngClass]="item.color">
                 <div class="row">
                     <h5 class="card-title col-9"><strong>{{item.title.slice(0,10)}}</strong></h5>
-                    <a class="col-3" (click)="setLikes($event,item.title,item.body,item.id)"><i class="fa-regular fa-heart" [style.color]="item.isFavourite ? 'red':'black'" style="cursor: pointer;" [title]="item.isFavourite ? 'unlike' : 'like'"></i></a>
+                    <a class="col-3" (click)="setLikes($event,item.title,item.body,item.id)"><i class="fa-solid fa-heart" [style.color]="item.isFavourite ? 'red':'black'" style="cursor: pointer;" [title]="item.isFavourite ? 'unlike' : 'like'"></i></a>
                 </div>
                   <hr/>
                   <p class="card-text">{{item.body.slice(0,20)}}...</p>
