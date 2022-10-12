@@ -11,28 +11,32 @@ import { NotesService } from '../services/notes.service';
 })
 export class NotesListComponent implements OnInit {
 
-  constructor(private http: HttpClient,private notesService:NotesService,private authService:AuthService) { }
+  constructor(private http: HttpClient, private notesService: NotesService, private authService: AuthService) { }
   notesData: any = [];
-  colorsList = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10'];
-  resData:any = [];
-  reverseData:any = [];
+  colorsList = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10'];
+  resData: any = [];
+  reverseData: any = [];
+  favnotes:number = 0;
   ngOnInit(): void {
     this.getNotes();
   }
 
 
-  getNotes(){
+  getNotes() {
     var username = this.authService.getUserName();
     this.notesService.getNotes(username).subscribe(
       res => {
-        var notes:any = res;
-        for(const key in notes){
-          let color = Math.floor(Math.random()*10);
-          this.notesData.push({...notes[key],id:key,color:this.colorsList[color]});
+        var notes: any = res;
+        for (const key in notes) {
+          let color = Math.floor(Math.random() * 10);
+          this.notesData.push({ ...notes[key], id: key, color: this.colorsList[color] });
         }
-        for(let i = this.notesData.length-1;i >= 0;i--){
+        for (let i = this.notesData.length - 1; i >= 0; i--) {
           //console.log(this.notesData[i]);
           this.reverseData.push(this.notesData[i]);
+          if(this.notesData[i].isFavourite == true){
+            this.favnotes += 1;
+          }
         }
         //console.log(this.reverseData);
       }
@@ -47,33 +51,46 @@ export class NotesListComponent implements OnInit {
    * @param {any} noteid - the id of the note
    * the main aim of this function is to make a note favourite and non-favourite among the list of notes
    */
-  setLikes(event:any,noteTitle:any,noteBody:any,noteid:any){
+  setLikes(favType: any, noteTitle: any, noteBody: any, noteid: any) {
+    // let iconColor = event.target.style.color;
+    // var newColor;
+    // var isFav;
+    // if(iconColor == 'black'){
+    //   event.target.style.color = 'red';
+    //   newColor = 'red';
+    //   isFav = true;
+    // }else{
+    //   event.target.style.color = 'black';
+    //   newColor = 'black';
+    //   isFav = false;
+    // }
+    // let resBody = {
+    //   title:noteTitle,
+    //   body:noteBody,
+    //   isFavourite:isFav
+    // }
     var username = this.authService.getUserName();
-    let iconColor = event.target.style.color;
-    var newColor;
-    var isFav;
-    if(iconColor == 'black'){
-      event.target.style.color = 'red';
-      newColor = 'red';
-      isFav = true;
-    }else{
-      event.target.style.color = 'black';
-      newColor = 'black';
-      isFav = false;
+    if (favType == 'unlike') {
+      let resBody = {title: noteTitle,body: noteBody,isFavourite: false};
+      this.notesService.updateNote(noteid, resBody, username).subscribe(res => {
+        this.notesData = [];
+        this.reverseData = [];
+        this.favnotes = 0;
+        this.getNotes();
+      }, err => {
+        console.log(err)
+      })
+    } else if (favType == 'like') {
+      let resBody = {title: noteTitle,body: noteBody,isFavourite: true}
+      this.notesService.updateNote(noteid, resBody, username).subscribe(res => {
+        this.notesData = [];
+        this.reverseData = [];
+        this.favnotes = 0;
+        this.getNotes();
+      }, err => {
+        console.log(err)
+      })
     }
-    let resBody = {
-      title:noteTitle,
-      body:noteBody,
-      isFavourite:isFav
-    }
-    this.notesService.updateNote(noteid,resBody,username).subscribe(res => {
-      //console.log(res)
-      this.notesData = [];
-      this.reverseData = [];
-      this.getNotes();
-    },err => {
-      console.log(err)
-    })
   }
 
 }
