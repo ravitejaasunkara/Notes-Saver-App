@@ -13,6 +13,9 @@ export class LikednotesComponent implements OnInit {
   likedNotes: any = [];
   favnotes:any = [];
   colorsList = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10'];
+  currTitle!:string;
+  currDescription!:string;
+  currId!:string;
   ngOnInit(): void {
     this.getFavouriteNotes();
   }
@@ -87,6 +90,12 @@ export class LikednotesComponent implements OnInit {
         console.log(err)
       })
     }
+  }
+
+  currData(title:any,description:string,id:string){
+    this.currTitle = title;
+    this.currDescription = description;
+    this.currId = id;
   }
 
 }

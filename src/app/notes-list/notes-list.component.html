@@ -1,10 +1,7 @@
 <div class="container">
     <div class="row">
         <h1 class="col-8" *ngIf="notesData.length>0" style="font-weight:bold;">Your Notes</h1>
-        <div class="col-4" style="display: flex;flex-direction:column;">
-            <small class="col-7">Total - {{reverseData.length}}</small> 
-            <small class="col-5">Fav - {{favnotes}}</small>
-        </div>
+        <small class="col-4">{{favnotes}} Fav note<span *ngIf="favnotes > 1">s </span> <i class="fa-solid fa-heart" style="color: red;"></i></small>
     </div>
     <hr/>
     <div class="row">

@@ -78,7 +78,8 @@ export class EditNotesComponent implements OnInit {
       let resBody = {
         title: this.titleInput.nativeElement.value,
         body: this.editNotesTextArea.nativeElement.value,
-        isFavourite:this.isFav
+        isFavourite:this.isFav,
+        dateUpdated:new Date().toUTCString(),
       }
       this.notesService.updateNote(this.noteId, resBody,username).subscribe(res => {
         this.updated = true;
