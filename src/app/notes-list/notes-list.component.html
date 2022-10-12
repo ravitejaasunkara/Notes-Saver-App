@@ -1,5 +1,8 @@
 <div class="container">
-    <h1 *ngIf="notesData.length>0" style="font-weight:bold;">Your Notes</h1>
+    <div class="row">
+        <h1 class="col-9" *ngIf="notesData.length>0" style="font-weight:bold;">Your Notes</h1>
+        <small class="col-3">{{favnotes}} Favourite notes <i class="fa-solid fa-heart" style="color: red;"></i></small>
+    </div>
     <hr/>
     <div class="row">
         <div *ngIf="notesData.length == 0" class="nodata">

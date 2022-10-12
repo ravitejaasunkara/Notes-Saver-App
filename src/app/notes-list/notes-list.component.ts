@@ -16,6 +16,7 @@ export class NotesListComponent implements OnInit {
   colorsList = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10'];
   resData: any = [];
   reverseData: any = [];
+  favnotes:number = 0;
   ngOnInit(): void {
     this.getNotes();
   }
@@ -33,6 +34,9 @@ export class NotesListComponent implements OnInit {
         for (let i = this.notesData.length - 1; i >= 0; i--) {
           //console.log(this.notesData[i]);
           this.reverseData.push(this.notesData[i]);
+          if(this.notesData[i].isFavourite == true){
+            this.favnotes += 1;
+          }
         }
         //console.log(this.reverseData);
       }
@@ -71,6 +75,7 @@ export class NotesListComponent implements OnInit {
       this.notesService.updateNote(noteid, resBody, username).subscribe(res => {
         this.notesData = [];
         this.reverseData = [];
+        this.favnotes = 0;
         this.getNotes();
       }, err => {
         console.log(err)
@@ -80,6 +85,7 @@ export class NotesListComponent implements OnInit {
       this.notesService.updateNote(noteid, resBody, username).subscribe(res => {
         this.notesData = [];
         this.reverseData = [];
+        this.favnotes = 0;
         this.getNotes();
       }, err => {
         console.log(err)
