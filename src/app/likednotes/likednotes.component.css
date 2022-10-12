@@ -73,7 +73,7 @@ a:hover{
 	/*Small smartphones [325px -> 425px]*/
     .container{
         /* height: 100vh; */
-        margin-top: 64px;
+        margin-top: 100px;
         margin-bottom: 5px;
     }
     h1{

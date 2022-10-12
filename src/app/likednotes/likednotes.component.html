@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <h1 class="col-9" *ngIf="likedNotes.length>0" style="font-weight:bold;">Your Favourite Notes</h1>
-        <small class="col-3">{{likedNotes.length}} Favourite notes <i class="fa-solid fa-heart" style="color: red;"></i></small>
+        <small class="col-3">{{likedNotes.length}} Fav note<span *ngIf="likedNotes.length > 1">s </span> <i class="fa-solid fa-heart" style="color: red;"></i></small>
     </div>
     <hr/>
     <div class="row">
