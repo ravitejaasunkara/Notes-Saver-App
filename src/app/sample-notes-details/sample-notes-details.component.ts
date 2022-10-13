@@ -7,8 +7,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./sample-notes-details.component.css']
 })
 export class SampleNotesDetailsComponent implements OnInit {
-
   constructor(private actRoute:ActivatedRoute) { }
+  title:any = '';
   sampleId:any;
   ngOnInit(): void {
     this.getId();
