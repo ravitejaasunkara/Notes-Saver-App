@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
@@ -14,7 +15,7 @@ describe('NoteDetailsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ NoteDetailsComponent ],
-      imports:[HttpClientTestingModule],
+      imports:[HttpClientTestingModule,RouterTestingModule],
       providers:[
         {provide:ActivatedRoute,useValue:{paramMap:of({id:1})}},
         {provide:AuthService,useValue: spyAuthService}

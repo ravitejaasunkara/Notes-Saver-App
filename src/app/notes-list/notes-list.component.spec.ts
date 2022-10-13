@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NotesListComponent } from './notes-list.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthService } from '../services/auth.service';
+import { RouterTestingModule } from '@angular/router/testing';
 describe('NotesListComponent', () => {
   let component: NotesListComponent;
   let fixture: ComponentFixture<NotesListComponent>;
@@ -12,7 +13,7 @@ describe('NotesListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ NotesListComponent ],
       imports:[
-        HttpClientTestingModule
+        HttpClientTestingModule,RouterTestingModule
       ],
       providers:[
         {provide:AuthService, useValue: spyAuthService}
