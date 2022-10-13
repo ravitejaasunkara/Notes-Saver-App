@@ -25,6 +25,7 @@ import { SampleNotesComponent } from './sample-notes/sample-notes.component';
 import { SampleNotesDetailsComponent } from './sample-notes-details/sample-notes-details.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { LikednotesComponent } from './likednotes/likednotes.component';
+import { NoteDetailsComponent } from './note-details/note-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { LikednotesComponent } from './likednotes/likednotes.component';
     SampleNotesComponent,
     SampleNotesDetailsComponent,
     LikednotesComponent,
+    NoteDetailsComponent,
   ],
   imports: [
     BrowserModule,

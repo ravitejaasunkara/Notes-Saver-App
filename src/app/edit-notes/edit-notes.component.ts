@@ -48,7 +48,7 @@ export class EditNotesComponent implements OnInit {
     var username = this.authService.getUserName();
     this.notesService.getNoteByNoteId(this.noteId,username).subscribe(res => {
       // this.posts = res;
-      console.log(res);
+      //console.log(res);
       var data: any = res;
       this.editNotesTextArea.nativeElement.value = data?.body;
       this.titleInput.nativeElement.value = data?.title;
