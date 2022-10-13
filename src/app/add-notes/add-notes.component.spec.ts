@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NotesListComponent } from '../notes-list/notes-list.component';
 import { AuthService } from '../services/auth.service';
@@ -14,7 +15,7 @@ describe('AddNotesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AddNotesComponent ],
-      imports:[HttpClientTestingModule,RouterTestingModule],
+      imports:[HttpClientTestingModule,RouterTestingModule,FormsModule,ReactiveFormsModule],
       providers:[NotesListComponent,{provide:AuthService, useValue: spyAuthService}]
     })
     .compileComponents();

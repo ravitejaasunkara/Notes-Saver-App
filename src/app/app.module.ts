@@ -23,7 +23,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FooterComponent } from './footer/footer.component';
 import { SampleNotesComponent } from './sample-notes/sample-notes.component';
 import { SampleNotesDetailsComponent } from './sample-notes-details/sample-notes-details.component';
-import { NgHttpLoaderModule } from 'ng-http-loader';
+import { NgHttpLoaderComponent, NgHttpLoaderModule } from 'ng-http-loader';
 import { LikednotesComponent } from './likednotes/likednotes.component';
 import { NoteDetailsComponent } from './note-details/note-details.component';
 @NgModule({
@@ -56,6 +56,10 @@ import { NoteDetailsComponent } from './note-details/note-details.component';
     NgHttpLoaderModule.forRoot(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth())
+  ],
+  exports:[
+    HeaderComponent,
+    FooterComponent
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
