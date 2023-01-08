@@ -21,18 +21,17 @@ export class NoteDetailsComponent implements OnInit {
 
   getId(){
     this.activatedRoute.paramMap.subscribe((params) => {
-      this.currentId = params.get('id');
+      this.currentId = params.get('id');      
     })
     //console.log(this.currentId);
   }
 
   getNoteDetailsByNoteId(){
-    var username = this.authService.getUserName();
-    this.notesService.getNoteByNoteId(this.currentId,username).subscribe(
+    this.notesService.getNoteByNoteId(this.currentId).subscribe(
       (res:any) => {
-        var data = res;
+        var data = res.result[0];
         this.noteTitle = data?.title;
-        this.noteBody =data?.body;
+        this.noteBody =data?.description;
       },(err:any) => {
         console.log(err);
       }

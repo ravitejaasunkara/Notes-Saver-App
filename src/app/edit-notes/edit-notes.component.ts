@@ -45,22 +45,17 @@ export class EditNotesComponent implements OnInit {
     })
   }
   loadDataIntoTextarea() {
-    var username = this.authService.getUserName();
-    this.notesService.getNoteByNoteId(this.noteId,username).subscribe(res => {
-      // this.posts = res;
-      //console.log(res);
-      var data: any = res;
-      this.editNotesTextArea.nativeElement.value = data?.body;
+    this.notesService.getNoteByNoteId(this.noteId).subscribe((res:any) => {
+      var data: any = res.result[0];
+      this.editNotesTextArea.nativeElement.value = data?.description;
       this.titleInput.nativeElement.value = data?.title;
-      this.isFav = data?.isFavourite;
+      this.isFav = data?.isFav;
     })
   }
 
   deleteNote() {
-    var username = this.authService.getUserName();
     if (window.confirm('Are you sure you want to delete this note ?')) {
-      this.notesService.deleteNote(this.noteId,username).subscribe(res => {
-        console.log(res);
+      this.notesService.deleteNote(this.noteId).subscribe(res => {
         this.deleted = true;
         setTimeout(() => {
           this.deleted = false;
@@ -73,15 +68,12 @@ export class EditNotesComponent implements OnInit {
   }
 
   updateNote() {
-    var username = this.authService.getUserName();
     if (window.confirm('Are you sure you want to update this note ?')) {
       let resBody = {
         title: this.titleInput.nativeElement.value,
-        body: this.editNotesTextArea.nativeElement.value,
-        isFavourite:this.isFav,
-        dateUpdated:new Date().toUTCString(),
+        description:this.editNotesTextArea.nativeElement.value
       }
-      this.notesService.updateNote(this.noteId, resBody,username).subscribe(res => {
+      this.notesService.updateNote(this.noteId, resBody).subscribe(res => {
         this.updated = true;
         setTimeout(() => {
           this.updated = false;

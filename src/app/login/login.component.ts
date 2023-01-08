@@ -23,27 +23,29 @@ export class LoginComponent implements OnInit {
   loginWrongEmail = false;
   loginFailedText = '';
   loginForm = new FormGroup({
-    username: new FormControl('',[Validators.required]),
     email: new FormControl('', [Validators.required]),
     password: new FormControl('',[Validators.required]),
   });
 
   login(formData: any) {
-    //localStorage.setItem('username',formData.get('username').value);
     const { email, password } = formData.value;
     this.authService.login(email, password).pipe(
       this.toast.observe({
-        error: ({ message }) => `${message}`,
+        error: 'email or password is incorrect',
         loading: 'Logging you into the application',
         success: 'Login successful'
       })
     )
       .subscribe(
-        (res) => {
-          this.isLoggedin = true;
-          localStorage.setItem('isLoggedin', this.isLoggedin ? 'true' : 'false');
-          localStorage.setItem('username',formData.get('username').value);
-          this.router.navigate(['/view-notes']);
+        (res:any) => {
+          if(res.status == true){
+            var userid = res.userId;
+            this.isLoggedin = true;
+            localStorage.setItem('isLoggedin', this.isLoggedin ? 'true' : 'false');
+            localStorage.setItem('userId',userid);
+            localStorage.setItem('username',res.userName);
+            this.router.navigate(['/view-notes']);
+          }
         },
         (error) => {
           console.log(error);
@@ -57,7 +59,6 @@ export class LoginComponent implements OnInit {
   }
   showOrHidePassword(){
     var some = document.getElementById('pwd');
-    //console.log(some?.getAttribute('type'))
     if(some?.getAttribute('type') == 'password'){
       some.setAttribute('type','text');
       this.passwordStatus = 'Hide'

@@ -25,55 +25,23 @@ export class LikednotesComponent implements OnInit {
    * getting all the saved notes and filtering the notes based on isFavourite is true or false
    */
   getFavouriteNotes() {
-    var username = this.authService.getUserName();
-    this.notesService.getNotes(username).subscribe(
+    const userid = localStorage.getItem('userId');
+    this.notesService.getFavNotes(userid).subscribe(
       (res: any) => {
-        var likenotes:any = res;
+        var likenotes:any = res.result;
         for(const key in likenotes){
           let color = Math.floor(Math.random()*10);
           this.favnotes.push({...likenotes[key],id:key,color:this.colorsList[color]});
-        }
-        for(let i = 0;i < this.favnotes.length;i++){
-          if(this.favnotes[i].isFavourite == true){
-            //console.log(this.favnotes[i])
-            this.likedNotes.push(this.favnotes[i]);
-          }
         }
       })
       // console.log(this.likedNotes);
   }
 
-  setLikes(favType:any,noteTitle:any,noteBody:any,noteid:any){
-    // var username = this.authService.getUserName();
-    // let iconColor = event.target.style.color;
-    // var newColor;
-    // var isFav;
-    // if(iconColor == 'black'){
-    //   event.target.style.color = 'red';
-    //   newColor = 'red';
-    //   isFav = true;
-    // }else{
-    //   event.target.style.color = 'black';
-    //   newColor = 'black';
-    //   isFav = false;
-    // }
-    // let resBody = {
-    //   title:noteTitle,
-    //   body:noteBody,
-    //   isFavourite:isFav
-    // }
-    // this.notesService.updateNote(noteid,resBody,username).subscribe(res => {
-    //   //console.log(res)
-    //   this.favnotes = [];
-    //   this.likedNotes = [];
-    //   this.getFavouriteNotes();
-    // },err => {
-    //   console.log(err)
-    // })
+  setLikes(favType:any,noteid:any){
     var username = this.authService.getUserName();
     if (favType == 'unlike') {
-      let resBody = {title: noteTitle,body: noteBody,isFavourite: false};
-      this.notesService.updateNote(noteid, resBody, username).subscribe(res => {
+      let resBody = {isFav: false};
+      this.notesService.updateNote(noteid, resBody).subscribe(res => {
         this.favnotes = [];
         this.likedNotes = [];
         this.getFavouriteNotes();
@@ -81,8 +49,8 @@ export class LikednotesComponent implements OnInit {
         console.log(err)
       })
     } else if (favType == 'like') {
-      let resBody = {title: noteTitle,body: noteBody,isFavourite: true}
-      this.notesService.updateNote(noteid, resBody, username).subscribe(res => {
+      let resBody = {isFav: true}
+      this.notesService.updateNote(noteid, resBody).subscribe(res => {
         this.favnotes = [];
         this.likedNotes = [];
         this.getFavouriteNotes();

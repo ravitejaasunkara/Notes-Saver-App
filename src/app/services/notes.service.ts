@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-
+import { notesUrl } from 'src/global';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,40 +12,31 @@ export class NotesService {
 
   currentUserName = this.authService.getUserName();
 
-  getNotesUrl = 'https://keep-your-noteshere-default-rtdb.firebaseio.com/';
+  userID = localStorage.getItem('userId');
+  getNotesUrl = '';
 
-  baseUrl = `https://keep-your-noteshere-default-rtdb.firebaseio.com/${this.currentUserName}.json`;
-
-  saveNote(title:any,noteDescription:any,username:any){
-    return this.http.post(this.getNotesUrl+username+'.json',{title:title,body:noteDescription,isFavourite:false,dateCreated:new Date().toUTCString()}); 
+  saveNote(title:any,noteDescription:any){
+    return this.http.post(notesUrl+'/createNote',{title:title,description:noteDescription,userId:this.userID});
   }
 
   getNotes(username:any){
-    return this.http.get(this.getNotesUrl+username+'.json');
+    return this.http.get(notesUrl+'/notes/user/'+this.userID);
   }
 
-  deleteNote(noteId:any,username:any){
-    let url = `${this.getNotesUrl}${username}/${noteId}.json`;
+  deleteNote(noteId:any){
+    let url = notesUrl+'/notes/'+noteId;
     return this.http.delete(url);
   }
 
-  getNoteByNoteId(noteId:any,username:any){
-    let url = `${this.getNotesUrl}${username}/${noteId}.json`;
-    return this.http.get(url);
+  getNoteByNoteId(noteId:any){
+    return this.http.get(notesUrl+'/notes/'+noteId);
   }
 
-  /**
-   * 
-   * @param noteId 
-   * @param resBody 
-   * @param username 
-   * @returns an observable of type any
-   * function useful in two ways
-   * one way for edit-notes and update
-   * and another way is to like and unlike the note
-   */
-  updateNote(noteId:any,resBody:any,username:any){
-    let url = `${this.getNotesUrl}${username}/${noteId}.json`;
-    return this.http.put(url,resBody);
+  getFavNotes(userid:any){
+    return this.http.get(notesUrl+'/favnotes/'+userid);
+  }
+
+  updateNote(noteId:any,resBody:any){
+    return this.http.patch(notesUrl+'/notes/'+noteId,resBody);
   }
 }

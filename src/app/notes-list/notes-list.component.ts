@@ -25,54 +25,28 @@ export class NotesListComponent implements OnInit {
   getNotes() {
     var username = this.authService.getUserName();
     this.notesService.getNotes(username).subscribe(
-      res => {
-        var notes: any = res;
+      (res:any) => {
+        var notes: any = res.result;
         for (const key in notes) {
+          //pushing color as an key:value into the notes array
           let color = Math.floor(Math.random() * 10);
           this.notesData.push({ ...notes[key], id: key, color: this.colorsList[color] });
         }
+        //reversing the notes data to display the recent created notes first
         for (let i = this.notesData.length - 1; i >= 0; i--) {
-          //console.log(this.notesData[i]);
           this.reverseData.push(this.notesData[i]);
-          if(this.notesData[i].isFavourite == true){
+          if(this.notesData[i].isFav == true){
             this.favnotes += 1;
           }
         }
-        //console.log(this.reverseData);
       }
     )
   }
-  /**
-   * It takes in the event, note title, note body, and note id, and then it sets the color of the icon
-   * to red if it's black, and black if it's red.
-   * @param {any} event - The event that is triggered when the user clicks on the icon.
-   * @param {any} noteTitle - Title of the note
-   * @param {any} noteBody - The body of the note
-   * @param {any} noteid - the id of the note
-   * the main aim of this function is to make a note favourite and non-favourite among the list of notes
-   */
-  setLikes(favType: any, noteTitle: any, noteBody: any, noteid: any) {
-    // let iconColor = event.target.style.color;
-    // var newColor;
-    // var isFav;
-    // if(iconColor == 'black'){
-    //   event.target.style.color = 'red';
-    //   newColor = 'red';
-    //   isFav = true;
-    // }else{
-    //   event.target.style.color = 'black';
-    //   newColor = 'black';
-    //   isFav = false;
-    // }
-    // let resBody = {
-    //   title:noteTitle,
-    //   body:noteBody,
-    //   isFavourite:isFav
-    // }
-    var username = this.authService.getUserName();
+  setLikes(favType: any, noteid: any) {
+    
     if (favType == 'unlike') {
-      let resBody = {title: noteTitle,body: noteBody,isFavourite: false};
-      this.notesService.updateNote(noteid, resBody, username).subscribe(res => {
+      let resBody = {isFav: false};
+      this.notesService.updateNote(noteid,resBody).subscribe(res => {
         this.notesData = [];
         this.reverseData = [];
         this.favnotes = 0;
@@ -81,8 +55,8 @@ export class NotesListComponent implements OnInit {
         console.log(err)
       })
     } else if (favType == 'like') {
-      let resBody = {title: noteTitle,body: noteBody,isFavourite: true}
-      this.notesService.updateNote(noteid, resBody, username).subscribe(res => {
+      let resBody = {isFav: true}
+      this.notesService.updateNote(noteid,resBody).subscribe(res => {
         this.notesData = [];
         this.reverseData = [];
         this.favnotes = 0;

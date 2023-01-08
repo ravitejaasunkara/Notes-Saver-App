@@ -29,7 +29,7 @@ export class AddNotesComponent implements OnInit {
   addNote() {
     const { title, noteDescription } = this.addNotesForm.value;
     var username = this.authService.getUserName();
-    this.notesService.saveNote(title, noteDescription,username).subscribe(res => {
+    this.notesService.saveNote(title, noteDescription).subscribe(res => {
       //console.log(res);
       this.saved = true;
       // this.titleInput.nativeElement.value = '';

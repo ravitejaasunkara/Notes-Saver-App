@@ -5,15 +5,6 @@
             <div class="col-12" *ngIf="loginWrongPassword">
                 <p class="alert alert-danger" role="alert">{{loginFailedText}}</p>
             </div>
-            <div class="username mt-3">
-                <label for="username" class="form-label"><span class="text-danger">*</span> Username</label>
-                <input type="text" class="form-control" id="username" formControlName="username">
-                <small style="font-size: 12px;">Note: Enter same username you have used during registration
-                    process..!</small>
-                <div *ngIf="f.username.errors && f.username.touched">
-                    <small *ngIf="f.username.errors['required']" class="text-danger" style="font-size: 12px;">Username is required.</small>
-                </div>
-            </div>
             <div class="email mt-3">
                 <label for="email" class="form-label"><span class="text-danger">*</span> Email</label>
                 <input type="text" class="form-control" id="email" formControlName="email">
