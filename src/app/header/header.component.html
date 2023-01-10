@@ -7,29 +7,29 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto">
-        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/login']"><strong>Home </strong>
+        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}"><strong>Home </strong>
           <i class="fa-solid fa-house"></i></a>
-          <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/add-notes']"><strong>Add Notes </strong> <i
+          <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/add-notes']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}"><strong>Add Notes </strong> <i
               class="fa-solid fa-plus"></i></a>
-        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/sample-notes']"><strong>Sample Notes </strong>
+        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/sample-notes']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}"><strong>Sample Notes </strong>
           <i class="fa-solid fa-comment"></i></a>
-        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/favourites']"><strong>Favourite Notes </strong>
+        <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/favourites']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}"><strong>Favourite Notes </strong>
           <i class="fa-solid fa-heart"></i></a>
         <!-- <a class="btn btn-default btn-sm px-3 nav-link" [routerLink]="['/view-notes']">Edit Notes <i
             class="fa-solid fa-pen-to-square"></i></a> -->
             <a class="btn btn-default btn-sm px-3 nav-link" 
             *ngIf = "!(authService.isUserLoggedIn())" 
-            [routerLink]="['/login']"><strong>Sign In </strong>
+            [routerLink]="['/login']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}"><strong>Sign In </strong>
             <i class="fa-solid fa-right-from-bracket"></i></a>
         <a class="btn btn-default btn-sm px-3 nav-link" 
         *ngIf = "authService.isUserLoggedIn()" 
-        (click)="logoutUser()"><strong>Sign Out </strong> 
+        (click)="logoutUser()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}"><strong>Sign Out </strong> 
         <i class="fa-solid fa-right-from-bracket"></i></a>
         <!--Login-->
         <!--Signup-->
         <a class="btn btn-default btn-sm px-3 nav-link" 
         *ngIf = "!(authService.isUserLoggedIn())" 
-        [routerLink]="['/signup']"><strong>Sign Up </strong>
+        [routerLink]="['/signup']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}"><strong>Sign Up </strong>
         <i class="fa-solid fa-user-plus"></i></a>
         <!-- this is for current logged in user name and icon-->
         <a class="text-center nav-link text-danger " style="color: green;" *ngIf = "authService.isUserLoggedIn()"><i class="fa-solid fa-circle-user" style="font-size: 20px;"></i>&nbsp;<small>Welcome</small>&nbsp;<strong>{{authService.getUserName() | uppercase}}</strong></a>
