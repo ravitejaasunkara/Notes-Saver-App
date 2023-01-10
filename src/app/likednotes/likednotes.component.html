@@ -18,6 +18,7 @@
                   <p class="card-text">{{item.description.slice(0,20)}}...</p>
                   <hr>
                   <a  class="btn btn-default btn-sm px-3" [routerLink]="['/note-details',item._id]">View note</a>
+                  <small *ngIf="item?.noteDate!=null" class="text-muted text-right" style="font-size: 12px;">{{ item?.noteDate}}</small>
                 </div>
             </div>
         </div>

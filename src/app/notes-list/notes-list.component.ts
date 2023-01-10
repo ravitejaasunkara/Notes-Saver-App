@@ -27,9 +27,10 @@ export class NotesListComponent implements OnInit {
       (res:any) => {
         var notes: any = res.result;
         for (const key in notes) {
+          let date = new Date(notes[key].updatedAt).toLocaleString();                
           //pushing color as an key:value into the notes array
           let color = Math.floor(Math.random() * 10);
-          this.notesData.push({ ...notes[key], id: key, color: this.colorsList[color] });
+          this.notesData.push({ ...notes[key], id: key, color: this.colorsList[color],noteDate:date });
         }
         //reversing the notes data to display the recent created notes first
         for (let i = this.notesData.length - 1; i >= 0; i--) {

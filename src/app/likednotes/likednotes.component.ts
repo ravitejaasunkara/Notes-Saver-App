@@ -30,8 +30,9 @@ export class LikednotesComponent implements OnInit {
       (res: any) => {
         var likenotes:any = res.result;
         for(const key in likenotes){
+          let date = new Date(likenotes[key].updatedAt).toLocaleString();
           let color = Math.floor(Math.random()*10);
-          this.favnotes.push({...likenotes[key],id:key,color:this.colorsList[color]});
+          this.favnotes.push({...likenotes[key],id:key,color:this.colorsList[color],noteDate:date});
         }
       })
       // console.log(this.likedNotes);
