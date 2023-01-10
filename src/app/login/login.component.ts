@@ -67,5 +67,25 @@ export class LoginComponent implements OnInit {
       this.passwordStatus = 'Show';
     }
   }
+  guestUserLogin(){
+    const email = 'guestuser@gmail.com';
+    const password = 'Guestuser123@';
+    this.authService.login(email, password)
+      .subscribe(
+        (res:any) => {
+          if(res.status == true){
+            var userid = res.userId;
+            this.isLoggedin = true;
+            localStorage.setItem('isLoggedin', this.isLoggedin ? 'true' : 'false');
+            localStorage.setItem('userId',userid);
+            localStorage.setItem('username',res.userName);
+            this.router.navigate(['/view-notes']);
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+  }
 
 }
