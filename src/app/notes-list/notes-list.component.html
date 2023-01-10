@@ -25,6 +25,8 @@
                   <p class="card-text">{{item.description.slice(0,20)}}...</p>
                   <hr>
                   <a  class="btn btn-default btn-sm px-3" [routerLink]="['/note-details',item._id]">View note</a>
+                  <small *ngIf="item?.dateCreated!=null" class="text-muted text-right" style="font-size: 12px;">{{item?.dateCreated != null ? item?.dateCreated?.slice(5,17) : ''}}</small>
+                  <small *ngIf="item?.dateUpdated!=null" class="text-muted text-right" style="font-size: 12px;">{{item?.dateUpdated != null ? item?.dateUpdated?.slice(5,17) : ''}}</small>
                 </div>
             </div>
         </div>
