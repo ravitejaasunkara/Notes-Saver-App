@@ -1,9 +1,9 @@
-<div class="page row">
-    <div class="child-page col-6">
-        <h1>404 - Page Not Found</h1>
-        <img src="/src/assets/undraw_Page_not_found_re_e9o6.png" alt="">
-    </div>
-    <div class="col-6">
-        <button class="btn btn-primary px-4" [routerLink]="['/login']">GO TO LOGIN</button>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-12 helptext">
+            <h2><span style="color: red;">OOPS !</span> Something wrong here...</h2>
+            <p class="mt-2">The page you are looking for doesn't really exist, Please head back to home</p>
+            <button class="btn btn-dark px-5 text-center mt-2" [routerLink]="['/login']">Home</button>
+        </div>
     </div>
 </div>

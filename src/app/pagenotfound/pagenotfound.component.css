@@ -1,12 +1,13 @@
-.page{
+.main {
+    background-color: #ADBEC4;
+    width: 100%;
     height: 100vh;
-    background-color: red;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Urbanist', sans-serif;
 }
-.child-page{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+button{
+    border-radius: 0px;
 }
