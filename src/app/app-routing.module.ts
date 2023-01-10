@@ -14,17 +14,17 @@ import { SampleNotesDetailsComponent } from './sample-notes-details/sample-notes
 import { LikednotesComponent } from './likednotes/likednotes.component';
 import { NoteDetailsComponent } from './note-details/note-details.component';
 const routes: Routes = [
-  {path:'login',component:LoginComponent,canActivate:[AuthtwoGuard]},
-  {path:'signup',component:SignupComponent,canActivate:[AuthtwoGuard]},
+  {path:'login',component:LoginComponent,canActivate:[AuthtwoGuard],title:'Login'},
+  {path:'signup',component:SignupComponent,canActivate:[AuthtwoGuard],title:'Signup'},
   {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'view-notes',component:NotesListComponent,canActivate:[AuthGuard]},
-  {path:'add-notes',component:AddNotesComponent,canActivate:[AuthGuard]},
-  {path:'edit-notes/:noteId',component:EditNotesComponent,canActivate:[AuthGuard]},
-  {path:'sample-notes/:id',component:SampleNotesDetailsComponent},
-  {path:'sample-notes',component:SampleNotesComponent},
-  {path:'favourites',component:LikednotesComponent,canActivate:[AuthGuard]},
+  {path:'view-notes',component:NotesListComponent,canActivate:[AuthGuard],title:'Saved Notes'},
+  {path:'add-notes',component:AddNotesComponent,canActivate:[AuthGuard],title:'Add Notes'},
+  {path:'edit-notes/:noteId',component:EditNotesComponent,canActivate:[AuthGuard],title:'Edit Notes'},
+  {path:'sample-notes/:id',component:SampleNotesDetailsComponent,title:'Sample Notes'},
+  {path:'sample-notes',component:SampleNotesComponent,title:'Sample Notes'},
+  {path:'favourites',component:LikednotesComponent,canActivate:[AuthGuard],title:'Liked Notes'},
   {path:'note-details/:id',component:NoteDetailsComponent},
-  {path:'**',component:PagenotfoundComponent}
+  {path:'**',component:PagenotfoundComponent,title:'404'}
 ];
 
 @NgModule({
