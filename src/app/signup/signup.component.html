@@ -29,7 +29,7 @@
             </div>
             <div class="form-check col-lg-3 col-sm-3 col-md-12 d-flex mt-2">
                 <input class="form-check-input" type="checkbox"  style="width: 15px;" (click)="showOrHidePassword('pwd1')">
-                <label class="form-check-label small" for="flexCheckDefault" style="margin-left: 8px;" >{{passwordStatus1}} Password</label>
+                <label class="form-check-label small" for="flexCheckDefault" style="margin-left: 8px;" ><small>{{passwordStatus1}} Password</small></label>
             </div>
             <div class="confirm-password mt-3">
                 <label for="confirmPassword" class="form-label"><span class="text-danger">*</span> Confirm Password</label>
@@ -43,17 +43,8 @@
             </div>
             <div class="form-check col-lg-3 col-sm-3 col-md-12 d-flex mt-2">
                 <input class="form-check-input" type="checkbox"  style="width: 15px;" (click)="showOrHidePassword('pwd2')">
-                <label class="form-check-label small" for="flexCheckDefault" style="margin-left: 8px;" >{{passwordStatus2}} Password</label>
+                <label class="form-check-label small" for="flexCheckDefault" style="margin-left: 8px;" ><small>{{passwordStatus2}} Password</small></label>
             </div>
-            <!-- <div class="row mt-2">
-                <div class="col-3">
-                    <input type="checkbox">
-                </div>
-                <div class="col-9 text-left">
-                    <small class="text-left">Show Password</small>
-                </div>
-            </div> -->
-            <small style="font-size: 12px;" class="mt-2 text-success text-center"><strong>Just a Heads up..remember your username,email & password to login :)</strong></small>
             <div class="login-button mt-4 mb-3">
                 <button class="btn btn-primary btn-sm col-12" [disabled]="!signupForm.valid">Signup</button>
             </div>

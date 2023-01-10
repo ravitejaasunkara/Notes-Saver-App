@@ -1,6 +1,13 @@
 .card {
     width: 100%;
     height: auto;
+    border-radius: 4px;
+    border: 0px;
+    overflow: hidden;
+    user-select: none;
+}
+.card-body{
+    padding: 30px;
 }
 .container {
     /* height: 70vh; */

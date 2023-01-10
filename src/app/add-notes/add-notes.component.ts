@@ -28,12 +28,9 @@ export class AddNotesComponent implements OnInit {
   }
   addNote() {
     const { title, noteDescription } = this.addNotesForm.value;
-    var username = this.authService.getUserName();
-    this.notesService.saveNote(title, noteDescription).subscribe(res => {
-      //console.log(res);
+    var userId = localStorage.getItem('userId');
+    this.notesService.saveNote(title, noteDescription,userId).subscribe(res => {
       this.saved = true;
-      // this.titleInput.nativeElement.value = '';
-      // this.textboxArea.nativeElement.value = '';
       setTimeout(() => {
         this.saved = false;
         this.router.navigate(['/view-notes']);

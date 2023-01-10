@@ -5,7 +5,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let item of sampleNotes;let i = index;">
             <div class="card mt-2 mb-2" [ngClass]="item.color">
                 <div class="card-body">
-                  <h5 class="card-title">{{item.title}}</h5>
+                  <h5 class="card-title"><strong>{{item.title}}</strong></h5>
                   <hr/>
                   <p class="card-text">{{item.body.slice(0,20)}}...</p>
                   <hr/>

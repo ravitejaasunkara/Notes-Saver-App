@@ -23,8 +23,7 @@ export class NotesListComponent implements OnInit {
 
 
   getNotes() {
-    var username = this.authService.getUserName();
-    this.notesService.getNotes(username).subscribe(
+    this.notesService.getNotes().subscribe(
       (res:any) => {
         var notes: any = res.result;
         for (const key in notes) {
