@@ -41,4 +41,7 @@ textarea{
         height: 100%;
         margin-top: 100px;
     }
+    textarea{
+        font-size: 14px;
+    }
 }

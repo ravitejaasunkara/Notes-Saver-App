@@ -37,4 +37,7 @@ textarea{
         width: 90%;
         margin-top: 120px;
     }
+    textarea{
+        font-size: 14px;
+    }
 }
