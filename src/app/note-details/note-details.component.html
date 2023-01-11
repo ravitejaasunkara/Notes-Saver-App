@@ -1,14 +1,19 @@
 <div class="content">
     <div class="container">
         <div class="row" style="margin-top: 0px;">
-            <div class="col-12">
-                <h1 class="text-center">{{noteTitle}}</h1>
+            <div class="row titleEdit">
+                <div class="col-9">
+                    <h3 class="">{{noteTitle}}</h3>
+                </div>
+                <div class="col-3 mt-2">
+                    <a href="javascript::void(0);" style="text-decoration: none;"
+                    class="text-right text-secondary font-weight-bold" [routerLink]="['/edit-notes',currentId]"><strong>Edit </strong><i class="fa-solid fa-pen-to-square"></i></a>
+                </div>
                 <hr>
             </div>
             <div class="col-12">
                 <h6><strong>{{noteBody}}</strong></h6>
             </div>
         </div>
-        <a class="btn btn-outline-dark btn-sm mb-2" [routerLink]="['/edit-notes',currentId]">edit note</a>
     </div>
 </div>

@@ -1,11 +1,5 @@
 <div class="container mb-5">
-    <div class="row mt-5 mb-3">
-        <div class="col-12 alert alert-success mt-1 small text-center" role="alert"  *ngIf="saved">
-            <strong>Note Saved successfully.</strong>
-        </div>
-        <div class="col-12 alert alert-warning mt-1 small text-center" role="alert" *ngIf="cancelled" >
-            <strong class="text-center">No changes made to the note.</strong>
-        </div>
+    <div class="row mb-3">
         <div class="col-12 alert alert-danger text-center mt-1 small" role="alert" *ngIf="deleted">
             <strong>Note deleted successfully.</strong>
         </div>
@@ -22,7 +16,7 @@
                 <textarea style="width: 100%;height:45vh" #editNotesTextArea id="descriptionTextarea" 
                 class="form-control" required></textarea>
             </div>
-            <div class="row mt-3 mb-3">
+            <!-- <div class="row mt-3 mb-3">
                 <div class="col-lg-3 col-sm-6 text-center">
                     <button class="btn btn-outline-secondary btn-sm px-5 mb-2" [routerLink]="['/view-notes']">
                         List <i class="fa-solid fa-backward"></i>
@@ -42,6 +36,15 @@
                     <button class="btn btn-danger btn-sm px-5 mb-2" (click)="deleteNote()">
                         Delete <i class="fa-solid fa-trash"></i>
                     </button>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-lg-9 col-sm-3">
+
+                </div>
+                <div class="col-lg-3 col-sm-9 mt-3 icons">
+                    <a title="Delete Note" href="javascript::void(0);" class="text-secondary" style="margin-right: 20px;" (click)="deleteNote()"><i class="fa-solid fa-trash fa-2x" ></i></a>
+                    <a title="Save Note" href="javascript::void(0);" class="text-secondary"><i class="fa-solid fa-floppy-disk fa-2x"  (click)="updateNote()"></i></a>
                 </div>
             </div>
         </form>
