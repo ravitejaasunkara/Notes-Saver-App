@@ -19,8 +19,8 @@ export class NotesService {
     return this.http.post(notesUrl+'/createNote',{title:title,description:noteDescription,userId:IdOfUser}); 
   }
 
-  getNotes(){
-    return this.http.get(notesUrl+'/notes/user/'+this.userID);
+  getNotes(userid:any){
+    return this.http.get(notesUrl+'/notes/user/'+userid);
   }
 
   deleteNote(noteId:any){

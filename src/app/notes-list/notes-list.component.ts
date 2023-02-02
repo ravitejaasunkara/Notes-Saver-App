@@ -23,7 +23,8 @@ export class NotesListComponent implements OnInit {
 
 
   getNotes() {
-    this.notesService.getNotes().subscribe(
+    let userid = localStorage.getItem('userId');
+    this.notesService.getNotes(userid).subscribe(
       (res:any) => {
         var notes: any = res.result;
         for (const key in notes) {
